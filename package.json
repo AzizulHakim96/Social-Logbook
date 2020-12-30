@@ -1,0 +1,27 @@
+{
+  "name": "social-logbook",
+  "version": "1.0.0",
+  "description": "This is an app for storing information about our friends, siblings and other people who we have relationship with. This has been made using node Js and Neo4J.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AzizulHakim96/Social-Logbook.git"
+  },
+  "dependencies": {
+    "body-parser": "1.19.0",
+    "cookie-parser": "*",
+    "ejs": "3.1.5",
+    "express": "*",
+    "morgan": "*",
+    "neo4j-driver": "^4.2.1"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AzizulHakim96/Social-Logbook/issues"
+  },
+  "homepage": "https://github.com/AzizulHakim96/Social-Logbook#readme"
+}
