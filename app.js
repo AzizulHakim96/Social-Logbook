@@ -17,13 +17,34 @@ app.use(bodyParser.urlencoded({extended:false}))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
-var driver = neo4j.driver("bolt://localhost", neo4j.auth.basic("neo4j", "neo4j"));
+var driver = neo4j.driver(
+    'neo4j://localhost',
+    neo4j.auth.basic('neo4j', '1234')
+  )
 var session = driver.session();
 
 
 //Home route
 app.get('/', function(req, res){
-    res.render('index');
+    session
+            .run("MATCH (n: Person) RETURN n")
+            .then(function(result){
+                var personArr = [];    
+                result.records.forEach(function(record){
+                    //console.log(record._fields[0]);
+                    personArr.push({
+                        id: record._fields[0].identity.low,
+                        name: record._fields[0].properties.name 
+                    })
+                });
+                res.render('index',
+                {
+                  persons: personArr  
+                });
+            })
+            .catch(function(error){
+                console.log(error);
+            })
 })
 
 app.listen(3000);
