@@ -1,9 +1,15 @@
-<%= name %>
+<%- include ('../views/partials/header') %>
+<a href="/">&nbsp;Go Back </a>
 
-Birthplace: <%= city %>, <%= state %>
-
-<ul>
+<h1>&nbsp;<i class="fa fa-user"></i> <%= name %></h1>
+<%if (city) { %>
+<br>
+<h4>&nbsp;<i class="fa fa-map-marker"></i> Birthplace: <%= city %>, <%= state %></h4>
+<% } %>
+<br>
+<h3>&nbsp;<i class="fa fa-users"></i>Friends with: </h3>
     <% friends.forEach(function(person) { %>
-        <li><a href="/person/<%= person.id %>"><%= person.name %></a></li>
+        <div class="card card-body bg-light col-md-2"><a href="/person/<%= person.id %>"><%= person.name %></a></div>&nbsp;
     <% }); %>
-</ul>
+
+<%- include ('../views/partials/footer') %> 
