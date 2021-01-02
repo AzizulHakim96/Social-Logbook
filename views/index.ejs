@@ -1,42 +1,50 @@
-<h3>Add a new Person</h3>
-<form method = "POST" action="/person/add">
-    <input type= "text" name="name" placeholder="Name">
-    <input type="submit" value="Submit">
-</form>
-
-<h3>Add a new Location</h3>
-<form method = "POST" action="/location/add">
+<%- include ('../views/partials/header') %>
+<h3>&nbsp;Add a new Person</h3>
+ 
+        <form method = "POST" action="/person/add">&nbsp;
+            <input type= "text" name="name" placeholder="Name">
+            <input type="submit" value="Submit" >
+        </form>
+   
+<h3>&nbsp;Add a new Location</h3>
+<form method = "POST" action="/location/add">&nbsp;
     <input type= "text" name="city" placeholder="City">
     <input type= "text" name="state" placeholder="State">
-    <input type="submit" value="Submit">
+    <input type="submit" value="Submit" >
 </form>
 
-<h3>Connect Friends</h3>
-<form method = "POST" action="/friends/connect">
+<h3>&nbsp;Connect Friends</h3>
+<form method = "POST" action="/friends/connect">&nbsp;
     <input type= "text" name="name1" placeholder="Name">
     <input type= "text" name="name2" placeholder="Name">
-    <input type="submit" value="Submit">
+    <input type="submit" value="Submit" >
 </form>
 
-<h3>Add Birth Location</h3>
-<form method = "POST" action="/person/born/add">
+<h3>&nbsp;Add Birth Location</h3>
+<form method = "POST" action="/person/born/add">&nbsp;
     <input type= "text" name="name" placeholder="Name">
     <input type= "text" name="city" placeholder="City">
     <input type= "text" name="state" placeholder="State">
     <input type= "text" name="year" placeholder="Year">
-    <input type="submit" value="Submit">
+    <input type="submit" value="Submit" >
 </form>
 
-<h3>People</h3>
-<ul>
+<h3>&nbsp;People</h3>
+<div class="row">
     <% persons.forEach(function(person){ %>
-        <li><a href="/person/<%= person.id %>"><%= person.name %></a></li>
+        <div class="col-md-2">
+            <div class="card card-body bg-light"><i class="fa fa-user"></i><a href="/person/<%= person.id %>"><%= person.name %></a></div>&nbsp;
+        </div>
     <% }) %>
-</ul>
+</div>
 
-<h3>Locations</h3>
-<ul>
+<h3>&nbsp;Locations</h3>
+<div class="row">
 <% locations.forEach(function(location){ %>
-    <li><%= location.city %>, <%= location.state %></li>
+    <div class="col-md-2">
+        <div class="card card-body bg-light"><i class="fa fa-map-marker"></i><%= location.city %>, <%= location.state %></div>
+</div>
 <% }) %>
-</ul>
+</div>
+
+<%- include ('../views/partials/footer') %>
