@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+web_modules/
+.pnpm-store/
+
+# Environment variables and secrets (NEVER commit these)
+.env
+.env.local
+
+# Caches and tooling
+.npm
+.eslintcache
+.stylelintcache
+.cache
+
+# IDEs and System files
+Thumbs.db
+.vscode/
+.idea/
